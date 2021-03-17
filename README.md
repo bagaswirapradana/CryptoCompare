@@ -17,11 +17,11 @@ This application is connected to the internet and retrieves cryptocurrencies fro
 * [Cyrptocurreny API](https://www.cryptocompare.com/)
 * [Retrofit](http://square.github.io/okhttp/)
 * [GSON](https://github.com/google/gson)
-* [EventBus] (https://github.com/greenrobot/EventBus)
-* [Epoxy] (https://github.com/airbnb/epoxy)
-* [ViewBinding] (https://developer.android.com/topic/libraries/view-binding)
-* [Koin] (https://github.com/InsertKoinIO/koin)
-* [Picasso] (https://square.github.io/picasso/)
+* [EventBus](https://github.com/greenrobot/EventBus/)
+* [Epoxy](https://github.com/airbnb/epoxy)
+* [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
+* [Koin](https://github.com/InsertKoinIO/koin)
+* [Picasso](https://square.github.io/picasso/)
 
 ## License
 ```
