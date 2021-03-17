@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:paddingStart="@dimen/_16sdp"
+    android:paddingEnd="@dimen/_16sdp">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_back"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_outline_arrow_back_ios_new_24" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:gravity="center"
+        android:text="@string/login_title"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/button_call_customer_service"
+        app:layout_constraintStart_toEndOf="@+id/button_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_call_customer_service"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_round_headset_mic_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_login_google"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/button_login_google"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="@dimen/_4sdp"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_google_icon"
+        app:iconGravity="start"
+        app:iconTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_back"
+        app:strokeColor="#E0E0E0"
+        app:strokeWidth="@dimen/_1sdp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_login_facebook"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/button_login_facebook"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="@dimen/_4sdp"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_facebook_icon"
+        app:iconGravity="start"
+        app:iconTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_login_google"
+        app:strokeColor="#E0E0E0"
+        app:strokeWidth="@dimen/_1sdp" />
+
+    <View
+        android:id="@+id/line_separator_1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#E0E0E0"
+        app:layout_constraintBottom_toBottomOf="@+id/hint_separator_login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_login_facebook"
+        app:layout_constraintWidth_percent="0.35" />
+
+    <TextView
+        android:id="@+id/hint_separator_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:gravity="center"
+        android:paddingTop="@dimen/_14sdp"
+        android:paddingBottom="@dimen/_14sdp"
+        android:text="@string/hint_or"
+        android:textAlignment="center"
+        android:textColor="#BDBDBD"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toStartOf="@+id/line_separator_2"
+        app:layout_constraintStart_toEndOf="@+id/line_separator_1"
+        app:layout_constraintTop_toBottomOf="@id/button_login_facebook" />
+
+    <View
+        android:id="@+id/line_separator_2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#E0E0E0"
+        app:layout_constraintBottom_toBottomOf="@+id/hint_separator_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_login_facebook"
+        app:layout_constraintWidth_percent="0.35" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_username"
+        style="@android:style/Widget.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_username"
+        android:textColorHint="@android:color/darker_gray"
+        android:theme="@style/EditTextThemeOverlay"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeColor="@color/green_900"
+        app:hintEnabled="true"
+        app:layout_constraintTop_toBottomOf="@+id/hint_separator_login">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/et_password"
+        style="@android:style/Widget.EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_password"
+        android:textColorHint="@android:color/darker_gray"
+        android:theme="@style/EditTextThemeOverlay"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:boxStrokeColor="@color/green_900"
+        app:hintEnabled="true"
+        app:layout_constraintTop_toBottomOf="@+id/et_username"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:inputType="textVisiblePassword"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_forgot_password"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:text="@string/button_forgot_password"
+        android:textAllCaps="false"
+        android:textColor="@color/green_900"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_login_form"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/button_login"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:backgroundTint="@color/green_900"
+        app:cornerRadius="@dimen/_4sdp"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_forgot_password" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_login_fingerprint"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proxima_nova_bold"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/button_login_fingerprint"
+        android:textAllCaps="false"
+        android:textColor="@color/green_900"
+        android:textStyle="bold"
+        app:backgroundTint="@android:color/white"
+        app:cornerRadius="@dimen/_4sdp"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_login_form"
+        app:strokeColor="@color/green_900"
+        app:strokeWidth="@dimen/_1sdp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_login_fingerprint">
+
+        <TextView
+            android:id="@+id/hint_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:gravity="center"
+            android:text="@string/hint_for_register_account"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_11ssp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/line_separator_2"
+            app:layout_constraintStart_toEndOf="@+id/line_separator_1"
+            app:layout_constraintTop_toBottomOf="@id/button_login_facebook" />
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/proxima_nova_bold"
+            android:text="@string/button_register_in_login"
+            android:textAllCaps="false"
+            android:textColor="@color/green_900"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        multiDexEnabled true
+        applicationId "id.bagaswirapradana.test.stockbit"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        defaultConfig {
+            vectorDrawables.useSupportLibrary = true
+        }
+    }
+
+    buildTypes {
+        release {
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlin_version"
+    implementation "androidx.core:core-ktx:$rootProject.core_kotlin_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.app_compat_version"
+    implementation "com.google.android.material:material:$rootProject.material_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
+
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'io.mockk:mockk:1.9.3.kotlin12'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation "org.koin:koin-android:$rootProject.koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$rootProject.koin_version"
+    implementation "org.koin:koin-androidx-scope:$rootProject.koin_version"
+
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.retrofit_coroutines_adapter_version"
+
+    implementation "com.airbnb.android:epoxy:4.4.1"
+    kapt "com.airbnb.android:epoxy-processor:4.4.1"
+
+    implementation 'de.greenrobot:eventbus:2.4.0'
+
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+}
