@@ -1,7 +1,5 @@
 # CryptoCompare
-Application that displays a list of cryptocurrencies
-
-This application is connected to the internet and retrieves cryptocurrencies from the https://www.cryptocompare.com/ API using Retrofit, which is then parsed using Gson.
+This application is connected to the internet and retrieves cryptocurrencies from the https://www.cryptocompare.com/ API using Retrofit, which is then parsed using Gson and show a list of cryptocurrencies
 
 ## Objective
 * Using Single Activity Architecture with Navigation Component
@@ -22,6 +20,9 @@ This application is connected to the internet and retrieves cryptocurrencies fro
 * [ViewBinding](https://developer.android.com/topic/libraries/view-binding)
 * [Koin](https://github.com/InsertKoinIO/koin)
 * [Picasso](https://square.github.io/picasso/)
+
+## Screenshots
+<img src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_login.png" data-canonical-src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_login.png" width="300"/>
 
 ## License
 ```
