@@ -4,17 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.airbnb.epoxy.EpoxyRecyclerView
 import de.greenrobot.event.EventBus
-import id.bagaswirapradana.test.stockbit.R
 import id.bagaswirapradana.test.stockbit.data.model.CoinData
 import id.bagaswirapradana.test.stockbit.databinding.FragmentHomeBinding
 import id.bagaswirapradana.test.stockbit.event.ReselectedEvent

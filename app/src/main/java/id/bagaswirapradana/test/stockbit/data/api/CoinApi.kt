@@ -1,8 +1,6 @@
 package id.bagaswirapradana.test.stockbit.data.api
 
 import id.bagaswirapradana.test.stockbit.data.model.CoinResponse
-import kotlinx.coroutines.Deferred
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

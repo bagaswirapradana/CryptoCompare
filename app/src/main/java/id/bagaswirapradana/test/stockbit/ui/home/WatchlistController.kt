@@ -1,6 +1,5 @@
 package id.bagaswirapradana.test.stockbit.ui.home
 
-import com.airbnb.epoxy.EpoxyAsyncUtil
 import com.airbnb.epoxy.EpoxyController
 import id.bagaswirapradana.test.stockbit.data.model.CoinData
 import id.bagaswirapradana.test.stockbit.ui.ProgressView_

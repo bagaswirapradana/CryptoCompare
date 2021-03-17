@@ -8,11 +8,9 @@ import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import de.greenrobot.event.EventBus
-import id.bagaswirapradana.test.stockbit.databinding.FragmentHomeBinding
 import id.bagaswirapradana.test.stockbit.databinding.MainActivityBinding
 import id.bagaswirapradana.test.stockbit.event.ReselectedEvent
 
