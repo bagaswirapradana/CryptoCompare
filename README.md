@@ -22,7 +22,7 @@ This application is connected to the internet and retrieves cryptocurrencies fro
 * [Picasso](https://square.github.io/picasso/)
 
 ## Screenshots
-<img src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_login.png" data-canonical-src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_login.png" width="300"/> <img src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_watchlist.png" data-canonical-src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_watchlist.png" width="300"/>
+<img src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_login.png" data-canonical-src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_login.png" width="300"/>  <img src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_watchlist.png" data-canonical-src="https://raw.githubusercontent.com/bagaswirapradana/CryptoCompare/master/screen_shoot_watchlist.png" width="300"/>
 
 ## License
 ```
