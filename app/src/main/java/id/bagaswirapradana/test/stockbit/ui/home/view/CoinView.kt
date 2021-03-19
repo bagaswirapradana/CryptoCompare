@@ -38,16 +38,15 @@ abstract class CoinView : EpoxyModelWithHolder<CoinView.Holder>() {
         holder.fullName.text = fullname
         Picasso.get().load("https://www.cryptocompare.com$url").fit().into(holder.image)
         holder.price.text = price
-        if (!change24Hours.contains("-")) {
-            holder.change24Hours.text = "+$change24Hours"
-        } else {
-            holder.change24Hours.text = change24Hours
-        }
-        if (change24Hours.contains("-")) {
-            holder.change24Hours.setTextColor(Color.parseColor("#e53935"))
-        } else {
-            holder.change24Hours.setTextColor(Color.parseColor("#008B00"))
-        }
+        if (!change24Hours.contains("-")) holder.change24Hours.text =
+            "+$change24Hours" else holder.change24Hours.text = change24Hours
+        if (change24Hours.contains("-")) holder.change24Hours.setTextColor(Color.parseColor("#e53935")) else holder.change24Hours.setTextColor(
+            Color.parseColor("#008B00")
+        )
+    }
+
+    override fun shouldSaveViewState(): Boolean {
+        return false
     }
 
     inner class Holder : KotlinEpoxyHolder() {

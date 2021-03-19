@@ -9,7 +9,7 @@ import id.bagaswirapradana.test.stockbit.data.model.CoinResponse
  */
 class WatchListRepository(private val coinApi: CoinApi) {
 
-    private val TAG = WatchListRepository::class.java.name
+    private val tag = WatchListRepository::class.java.name
     private val limit: Int = 50
 
     suspend fun getCoinsFromApi(page: Int): CoinResponse? {
@@ -19,7 +19,7 @@ class WatchListRepository(private val coinApi: CoinApi) {
                 return it
             }
         } catch (error: Exception) {
-            Log.e(TAG, "Error: ${error.message}")
+            Log.e(tag, "Error: ${error.message}")
             return null
         }
     }

@@ -25,20 +25,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navController = findNavController(R.id.nav_host_fragment)
-        binding.navView.setupWithNavController(navController)
 
-        binding.navView.setOnNavigationItemReselectedListener {
-            val destination: NavDestination = navController.currentDestination!!
-            when (destination.id) {
-                R.id.navigation_home -> {
-                    EventBus.getDefault().post(ReselectedEvent(0))
-                }
-                else -> {
-                    NavigationUI.onNavDestinationSelected(it, navController)
+        binding.navView.run {
+            setupWithNavController(navController)
+            setOnNavigationItemReselectedListener {
+                val destination: NavDestination = navController.currentDestination!!
+                when (destination.id) {
+                    R.id.navigation_home -> {
+                        EventBus.getDefault().post(ReselectedEvent(0))
+                    }
+                    else -> {
+                        NavigationUI.onNavDestinationSelected(it, navController)
+                    }
                 }
             }
         }
-
         showLogin()
     }
 
@@ -51,33 +52,35 @@ class MainActivity : AppCompatActivity() {
             val parentLayout =
                 bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             parentLayout?.let { item ->
-                val behaviour = BottomSheetBehavior.from(item)
-                behaviour.addBottomSheetCallback(object :
-                    BottomSheetBehavior.BottomSheetCallback() {
+               BottomSheetBehavior.from(item).run {
+                    addBottomSheetCallback(object :
+                        BottomSheetBehavior.BottomSheetCallback() {
 
-                    override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+                        override fun onSlide(bottomSheet: View, slideOffset: Float) {}
 
-                    override fun onStateChanged(bottomSheet: View, newState: Int) {
-                        when (newState) {
-                            BottomSheetBehavior.STATE_HIDDEN -> {
-                            }
-                            BottomSheetBehavior.STATE_COLLAPSED -> {
-                                dialog.dismiss()
-                            }
-                            BottomSheetBehavior.STATE_DRAGGING -> {
-                            }
-                            BottomSheetBehavior.STATE_EXPANDED -> {
-                            }
-                            BottomSheetBehavior.STATE_HALF_EXPANDED -> {
-                                behaviour.state = BottomSheetBehavior.STATE_EXPANDED
-                            }
-                            BottomSheetBehavior.STATE_SETTLING -> {
+                        override fun onStateChanged(bottomSheet: View, newState: Int) {
+                            when (newState) {
+                                BottomSheetBehavior.STATE_HIDDEN -> {
+                                }
+                                BottomSheetBehavior.STATE_COLLAPSED -> {
+                                    dialog.dismiss()
+                                }
+                                BottomSheetBehavior.STATE_DRAGGING -> {
+                                }
+                                BottomSheetBehavior.STATE_EXPANDED -> {
+                                }
+                                BottomSheetBehavior.STATE_HALF_EXPANDED -> {
+                                    state = BottomSheetBehavior.STATE_EXPANDED
+                                }
+                                BottomSheetBehavior.STATE_SETTLING -> {
+                                }
                             }
                         }
-                    }
-                })
-                setupFullHeight(item)
-                behaviour.state = BottomSheetBehavior.STATE_EXPANDED
+                    })
+                    setupFullHeight(item)
+                    state = BottomSheetBehavior.STATE_EXPANDED
+                    skipCollapsed = true
+                }
             }
         }
         dialog.show()

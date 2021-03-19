@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import de.greenrobot.event.EventBus
 import id.bagaswirapradana.test.stockbit.data.model.CoinData
 import id.bagaswirapradana.test.stockbit.databinding.FragmentHomeBinding
@@ -26,6 +27,7 @@ class HomeFragment : Fragment() {
     private var isLastPage: Boolean = false
     private lateinit var binding: FragmentHomeBinding
     private var watchlistController: WatchlistController? = null
+    private lateinit var scrollListener: EndlessRecyclerViewScrollListener
 
     override fun onStart() {
         super.onStart()
@@ -49,7 +51,7 @@ class HomeFragment : Fragment() {
             watchlistController = WatchlistController()
         }
 
-        val scrollListener = object : EndlessRecyclerViewScrollListener(linearlayoutManager) {
+        scrollListener = object : EndlessRecyclerViewScrollListener(linearlayoutManager) {
             override fun onLoadMore(page: Int) {
                 if (!isLastPage) {
                     watchListViewModel.loadDataNextPage()
@@ -64,7 +66,6 @@ class HomeFragment : Fragment() {
             itemAnimator = DefaultItemAnimator()
             setController(watchlistController!!)
             addOnScrollListener(scrollListener)
-            smoothScrollToPosition(0)
         }
 
         binding.swipeRefreshLayout.setOnRefreshListener {
@@ -75,10 +76,20 @@ class HomeFragment : Fragment() {
             binding.progressBar.visibility = View.GONE
         }
 
-        scrollListener.resetState()
+        binding.recyclerView.adapter!!.registerAdapterDataObserver(adapterDataObserver)
+
         watchListViewModel.setCurrentPage(0)
+        scrollListener.resetState()
         watchListViewModel.loadData()
         initObservers()
+    }
+
+    private val adapterDataObserver: AdapterDataObserver = object : AdapterDataObserver() {
+        override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
+            if (positionStart == 0) {
+                onEvent(ReselectedEvent(0))
+            }
+        }
     }
 
     private fun initObservers() {
@@ -116,13 +127,15 @@ class HomeFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        binding.recyclerView.adapter!!.unregisterAdapterDataObserver(adapterDataObserver)
+        binding.recyclerView.removeOnScrollListener(scrollListener)
         binding.recyclerView.adapter = null
         super.onDestroyView()
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         bus.unregister(this)
+        super.onDestroy()
     }
 
     fun onEvent(event: ReselectedEvent) {

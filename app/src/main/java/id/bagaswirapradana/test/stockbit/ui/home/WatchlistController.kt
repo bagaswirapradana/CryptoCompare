@@ -15,23 +15,29 @@ class WatchlistController : EpoxyController() {
     private var isLastPage: Boolean = false
 
     fun setCoins(data: MutableList<CoinData>) {
-        this.coins.clear()
-        this.coins.addAll(data)
-        requestModelBuild()
+        this.coins.apply {
+            clear()
+            addAll(data)
+            requestModelBuild()
+        }
     }
 
     fun addCoins(data: MutableList<CoinData>) {
-        this.coins.addAll(data)
-        requestModelBuild()
+        this.coins.apply {
+            addAll(data)
+            requestModelBuild()
+        }
     }
 
     override fun buildModels() {
         coins.forEach {
             coinView {
-                id(it.coinInfo?.id)
-                name(it.coinInfo?.name)
-                fullname(it.coinInfo?.fullName)
-                url(it.coinInfo?.imageUrl)
+                it.coinInfo!!.run {
+                    id(it.coinInfo.id)
+                    name(it.coinInfo.name)
+                    fullname(it.coinInfo.fullName)
+                    url(it.coinInfo.imageUrl)
+                }
                 price(
                     if (it.raw != null) {
                         "IDR " + Helpers.prettyCount(it.raw.currency.price)
